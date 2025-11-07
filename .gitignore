@@ -1,0 +1,64 @@
+# --- Python ---
+__pycache__/
+*.py[cod]
+*.so
+*.pyo
+*.pyd
+*.egg-info/
+.eggs/
+*.log
+
+# Virtual env
+.venv/
+venv/
+env/
+
+# Editors/OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# --- Django ---
+# Base de datos local (si en algún momento usas SQLite)
+db.sqlite3
+*.sqlite3
+
+# Archivos generados por collectstatic
+/staticfiles/
+/static_root/
+/media/
+/media_root/
+
+# Archivos de migración compilados
+**/migrations/**/__pycache__/
+
+# Seguridad / Config local
+.env
+.env.*
+!.env.example
+
+# Tests / cobertura
+.coverage
+htmlcov/
+.pytest_cache/
+.tox/
+.mypy_cache/
+.cache/
+
+# Builds
+build/
+dist/
+pip-wheel-metadata/
+
+# Docker (si llegas a usar)
+docker-compose.override.yml
+*.pid
+
+# Node (por si agregas tooling front en el futuro)
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+package-lock.json
+pnpm-lock.yaml
