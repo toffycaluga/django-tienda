@@ -143,3 +143,16 @@ def eliminar_etiqueta(request, id):
         messages.info(request, "Etiqueta eliminada.")
         return redirect("lista_etiquetas")
     return render(request, "etiquetas/eliminar.html", {"obj": obj})
+
+
+def register(request):
+    if request.method == "POST":
+        form = UserCreationForm(request.POST)
+        if form.is_valid():
+            user = form.save()          # crea usuario
+            login(request, user)        # inicia sesión tras registrarse (opcional)
+            messages.success(request, "Cuenta creada correctamente.")
+            return redirect("index")
+    else:
+        form = UserCreationForm()
+    return render(request, "auth/register.html", {"form": form})
