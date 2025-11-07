@@ -18,8 +18,10 @@ cd django-tienda
 python3 -m venv .venv
 source .venv/bin/activate
 pip install -r requirements.txt
+```
+Variables de entorno (ejemplo)
+```.env
 
-# 3) Variables de entorno (ejemplo)
 export DB_HOST=127.0.0.1
 export DB_PORT=5432
 export DB_NAME=tienda_db
