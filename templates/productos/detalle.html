@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block title %}Detalle{% endblock %}
+{% block content %}
+<h2>{{ producto.nombre }}</h2>
+<p class="text-muted">{{ producto.categoria }}</p>
+<p>{{ producto.descripcion }}</p>
+<ul>
+  <li>Precio: ${{ producto.precio }}</li>
+  <li>Etiquetas: {{ producto.etiquetas.all|join:", " }}</li>
+  {% if producto.detalle %}
+    <li>Dimensiones: {{ producto.detalle.dimensiones }}</li>
+    <li>Peso: {{ producto.detalle.peso }} kg</li>
+  {% endif %}
+</ul>
+<a class="btn btn-primary" href="{% url 'editar_producto' producto.id %}">Editar</a>
+<a class="btn btn-outline-danger" href="{% url 'eliminar_producto' producto.id %}">Eliminar</a>
+{% endblock %}
