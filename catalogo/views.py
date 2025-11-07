@@ -190,3 +190,7 @@ def register(request):
     else:
         form = UserCreationForm()
     return render(request, "auth/register.html", {"form": form})
+
+def logout_view(request):
+    logout(request)
+    return redirect("login")
