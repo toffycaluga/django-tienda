@@ -1,0 +1,5 @@
+{% extends "base.html" %}
+{% block title %}Eliminar categoría{% endblock %}
+{% block content %}
+{% include "partials/_confirm.html" with message="¿Eliminar la categoría «%s»?"|format:obj.nombre cancel_url=('/categorias/') action_label="Eliminar" %}
+{% endblock %}

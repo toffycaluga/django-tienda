@@ -1,0 +1,5 @@
+{% extends "base.html" %}
+{% block title %}Eliminar etiqueta{% endblock %}
+{% block content %}
+{% include "partials/_confirm.html" with message="¿Eliminar la etiqueta «%s»?"|format:obj.nombre cancel_url=('/etiquetas/') action_label="Eliminar" %}
+{% endblock %}

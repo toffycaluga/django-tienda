@@ -1,9 +1,13 @@
 {% extends "base.html" %}
 {% block title %}Inicio{% endblock %}
 {% block content %}
-<div class="p-5 bg-white rounded shadow-sm">
+<div class="card card-page p-5">
   <h1 class="mb-3">Bienvenido 👋</h1>
-  <p>Gestor de productos con Django + PostgreSQL.</p>
-  <a class="btn btn-primary" href="{% url 'lista_productos' %}">Ver productos</a>
+  <p class="text-secondary">Gestiona productos, categorías y etiquetas.</p>
+  <div class="row g-3 mt-1">
+    <div class="col-md-4"><a class="btn btn-primary w-100 py-3" href="{% url 'lista_productos' %}">Productos</a></div>
+    <div class="col-md-4"><a class="btn btn-outline-primary w-100 py-3" href="{% url 'lista_categorias' %}">Categorías</a></div>
+    <div class="col-md-4"><a class="btn btn-outline-primary w-100 py-3" href="{% url 'lista_etiquetas' %}">Etiquetas</a></div>
+  </div>
 </div>
 {% endblock %}

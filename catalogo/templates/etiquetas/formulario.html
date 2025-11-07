@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% block title %}{{ obj|default_if_none:"Nueva etiqueta" }}{% endblock %}
+{% block content %}
+<h2 class="mb-3">{{ obj|default_if_none:"Nueva etiqueta" }}</h2>
+<form method="post" class="card card-page p-4">
+  {% csrf_token %}
+  {% include "partials/_form_fields.html" with form=form %}
+  <div class="page-actions">
+    <a class="btn btn-secondary" href="{% url 'lista_etiquetas' %}">Cancelar</a>
+    <button class="btn btn-success">Guardar</button>
+  </div>
+</form>
+{% endblock %}

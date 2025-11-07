@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+{% block title %}Detalle{% endblock %}
+{% block content %}
+<div class="d-flex justify-content-between align-items-center mb-3">
+  <h2 class="mb-0">{{ producto.nombre }}</h2>
+  <div class="page-actions">
+    <a class="btn btn-outline-secondary" href="{% url 'lista_productos' %}">Volver</a>
+    <a class="btn btn-primary" href="{% url 'editar_producto' producto.id %}">Editar</a>
+    <a class="btn btn-outline-danger" href="{% url 'eliminar_producto' producto.id %}">Eliminar</a>
+  </div>
+</div>
+
+<div class="card card-page p-4">
+  <div class="row g-3">
+    <div class="col-md-8">
+      <p class="text-secondary mb-1">Categoría</p>
+      <p class="mb-3">{{ producto.categoria }}</p>
+
+      <p class="text-secondary mb-1">Descripción</p>
+      <p class="mb-3">{{ producto.descripcion|default:"—" }}</p>
+
+      <p class="text-secondary mb-1">Etiquetas</p>
+      <p>
+        {% for e in producto.etiquetas.all %}
+          <span class="badge rounded-pill badge-soft me-1">{{ e.nombre }}</span>
+        {% empty %}<span class="text-muted">—</span>{% endfor %}
+      </p>
+    </div>
+    <div class="col-md-4">
+      <div class="border rounded p-3 bg-light">
+        <p class="text-secondary mb-1">Precio</p>
+        <p class="fs-4 fw-semibold">${{ producto.precio }}</p>
+        {% if producto.detalle %}
+          <hr>
+          <p class="text-secondary mb-1">Dimensiones</p>
+          <p class="mb-2">{{ producto.detalle.dimensiones|default:"—" }}</p>
+          <p class="text-secondary mb-1">Peso</p>
+          <p class="mb-0">{{ producto.detalle.peso|default:"—" }} {% if producto.detalle.peso %}kg{% endif %}</p>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

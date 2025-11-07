@@ -1,0 +1,5 @@
+{% extends "base.html" %}
+{% block title %}Eliminar{% endblock %}
+{% block content %}
+{% include "partials/_confirm.html" with message="¿Eliminar definitivamente «%s»?"|format:producto.nombre cancel_url=('/productos/') action_label="Eliminar" %}
+{% endblock %}
